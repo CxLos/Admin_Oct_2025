@@ -1,1 +1,1 @@
-web: gunicorn admin_jul_25:server
+web: gunicorn admin_oct_25:server
