@@ -38,10 +38,10 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 # data = pd.read_excel(file_path)
 # df = data.copy()
 
-current_month = datetime(2025, 10, 1).strftime("%B")
-report_year = datetime(2025, 10, 1).strftime("%Y")
+current_month = datetime(2025, 11, 1).strftime("%B")
+report_year = datetime(2025, 11, 1).strftime("%Y")
 report = "Admin"
-mo = 'Oct'
+mo = 'Nov'
 
 # Define the Google Sheets URL
 sheet_url = "https://docs.google.com/spreadsheets/d/1zSwhYYlc6VjZ_oef4JhrRKL6fWySfXQ9uReGpojU4ds/edit?gid=1576272780#gid=1576272780"
@@ -70,7 +70,7 @@ data = pd.DataFrame(worksheet.get_all_records())
 df = data.copy()
 
 # Strip whitespace from columns and cell values
-df.columns = df.columns.str.strip()
+df.columns = df.columns.astype(str).str.strip()
 df = df.apply(
         lambda col: col.str.strip() if col.dtype == "object" or pd.api.types.is_string_dtype(col) else col
     )
