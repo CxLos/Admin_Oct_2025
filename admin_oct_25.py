@@ -44,7 +44,7 @@ report = "Admin"
 mo = 'Oct'
 
 # Define the Google Sheets URL
-sheet_url = "https://docs.google.com/spreadsheets/d/1zSwhYYlc6VjZ_oef4JhrRKL6fWySfXQ9uReGpojU4ds/edit?gid=1576272780#gid=1576272780"
+sheet_url = "https://docs.google.com/spreadsheets/d/1xZ-OulU-SOfd6jraH2fEvvVdbSXIUOg-RA3PKZHP_GQ/edit?pli=1&gid=1584949732#gid=1584949732"
 
 # Define the scope
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
@@ -63,7 +63,7 @@ else:
         raise FileNotFoundError("Service account JSON file not found and GOOGLE_CREDENTIALS is not set.")
 
 # Authorize and load the sheet
-client = gspread.authorize(creds)
+client = gspread.authorize(creds) # type: ignore
 sheet = client.open_by_url(sheet_url)
 worksheet = sheet.worksheet(f"{current_month}")
 data = pd.DataFrame(worksheet.get_all_records())
